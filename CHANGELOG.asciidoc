@@ -26,6 +26,7 @@ image::https://raw.githubusercontent.com/apache/tinkerpop/master/docs/static/ima
 TinkerPop 3.2.3 (Release Date: NOT OFFICIALLY RELEASED YET)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+* VertexPrograms can now declare traverser requirements, e.g. to have access to the path when used with `.program()`.
 * Added missing `InetAddress` to GraphSON extension module.
 
 [[release-3-2-2]]
