@@ -80,8 +80,8 @@ public class DetachedVertex extends DetachedElement<Vertex> implements Vertex {
             this.properties = new HashMap<>();
             properties.entrySet().stream().forEach(
                     entry -> this.properties.put(entry.getKey(), (List<VertexProperty>) ((List) entry.getValue()).stream()
-                                .map(m -> VertexProperty.class.isAssignableFrom(m.getClass())
-                                                ? m
+                                .map(m -> m instanceof VertexProperty
+                                                ? DetachedFactory.detach((VertexProperty<?>) m, true)
                                                 : new DetachedVertexProperty<>(((Map) m).get(ID), entry.getKey(), ((Map) m).get(VALUE), (Map<String, Object>) ((Map) m).getOrDefault(PROPERTIES, new HashMap<>()), this))
                                 .collect(Collectors.toList())));
         }
